@@ -14,7 +14,7 @@ st.sidebar.info(
 
     # Set the model engine and your OpenAI API key
 model_engine = "text-davinci-003"
-openai.api_key = "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" #follow step 4 to get a secret_key
+openai.api_key = "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" #follow step 4 to get a secret_key
 
 def ChatGPT(user_query):
     ''' 

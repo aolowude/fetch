@@ -5,6 +5,8 @@ export const AppDataSource = new DataSource({
   type: "postgres",
   host: "localhost",
   port: 5432,
+  // username: "postgres",
+  // password: "postgres",
   username: "fetch_admin",
   password: "f3tch",
   database: "fetch-local",

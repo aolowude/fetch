@@ -4,15 +4,20 @@ Run
 `npm i`
 to install neccessary packages
 
+Create a '.env' file in the root folder
+The 'config' folder will reference environment variables or default values
+
 ## Development
 
 Run:
-`npm run dev`
+`npm run start`
+
+## GraphQL Visual Interface
+
+After running the server, navigate to the url:
+http://localhost:8090/graphiql
 
 ## Test
-
-Create a '.env' file in the root folder
-The 'config' folder will reference environment variables or default values
 
 While server is running, in a terminal, run:
 

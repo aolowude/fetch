@@ -6,6 +6,10 @@ import { Subcategory } from "./entity/Subcategory";
 import { Supplier } from "./entity/Supplier";
 import { Uom } from "./entity/Uom";
 import { Warehouse } from "./entity/Warehouse";
+import postgraphile from "postgraphile";
+import postgresConfig from "./config/postgres.config";
+
+const { postgresUser, postgresPassword } = postgresConfig;
 
 /**
  * This is our main entry point of our Express server.
@@ -14,11 +18,24 @@ import { Warehouse } from "./entity/Warehouse";
 const App = () => {
   const app = express();
   app.use(express.json());
+  app.use(
+    postgraphile(
+      `postgresql://${postgresUser}:${postgresPassword}@localhost/fetch-local`,
+      "public",
+      {
+        watchPg: true,
+        graphiql: true,
+        enhanceGraphiql: true,
+      }
+    )
+  );
 
+  // GET route to ping the server
   app.get("/api/v1/fetch", async (req, res, next) => {
-    res.send("success\n");
+    res.send("fetched\n");
   });
 
+  // POST route for adding data to Postgres
   app.post("/api/v1/test/data", async (req, res, next) => {
     // UOM
     const each = new Uom();

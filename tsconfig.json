@@ -15,5 +15,7 @@
     "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "skipLibCheck": true
+    // "noEmit": true,
+    // "allowImportingTsExtensions": true
   }
 }

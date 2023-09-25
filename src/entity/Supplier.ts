@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { SupplierProduct } from "./SupplierProduct";
 
 @Entity()
 export class Supplier {
@@ -10,4 +11,12 @@ export class Supplier {
 
   @Column()
   address: string;
+
+  // Supplier can be associated with many Products
+  @OneToMany(
+    () => SupplierProduct,
+    (supplierProduct) => supplierProduct.supplier,
+    { nullable: true }
+  )
+  supplierProducts: SupplierProduct[];
 }

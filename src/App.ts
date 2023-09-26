@@ -10,6 +10,7 @@ import postgraphile from "postgraphile";
 import postgresConfig from "./config/postgres.config";
 import { makeExtendSchemaPlugin, gql } from "graphile-utils";
 import { registerTransaction } from "./service/inventory";
+import cors from "cors";
 
 const { postgresUser, postgresPassword } = postgresConfig;
 
@@ -65,6 +66,7 @@ const RegisterTransactionPlugin = makeExtendSchemaPlugin((_build) => {
 const App = () => {
   const app = express();
   app.use(express.json());
+  app.use(cors());
   app.use(
     postgraphile(
       `postgresql://${postgresUser}:${postgresPassword}@localhost/fetch-local`,

@@ -12,6 +12,10 @@ The 'config' folder will reference environment variables or default values
 Run:
 `npm run start`
 
+Front end:
+`cd fe`
+`npm run start`
+
 ## GraphQL Visual Interface
 
 After running the server, navigate to the url:

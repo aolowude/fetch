@@ -9,10 +9,17 @@ The 'config' folder will reference environment variables or default values
 
 ## Development
 
-Run:
+Either
+
+Run backend AND Frontend:
+`npm run dev`
+
+OR
+
+Run backend:
 `npm run start`
 
-Front end:
+Run Front end:
 `cd fe`
 `npm run start`
 

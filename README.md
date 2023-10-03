@@ -22,6 +22,9 @@ Run backend:
 Run Front end:
 `cd fe`
 `npm run start`
+--
+Run Admin:
+`npm run admin`
 
 ## GraphQL Visual Interface
 

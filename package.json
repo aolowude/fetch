@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev --transpile-only src/index.ts",
-    "dev": "npm start & sleep 2 && cd fe && npm start",
+    "dev": "npm start & sleep 2 && cd client && npm start",
+    "admin": "npm start & sleep 2 && cd admin && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

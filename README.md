@@ -1,7 +1,11 @@
 ## Setup
 
 Run
-`npm i`
+`npm run install-client`
+`npm run install-admin`
+
+OR Manually
+`npm i --include=dev`
 `cd client && npm i`
 `cd admin && npm i`
 

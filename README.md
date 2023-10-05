@@ -2,6 +2,9 @@
 
 Run
 `npm i`
+`cd client && npm i`
+`cd admin && npm i`
+
 to install neccessary packages
 
 Create a '.env' file in the root folder

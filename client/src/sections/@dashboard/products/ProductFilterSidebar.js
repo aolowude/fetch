@@ -28,8 +28,8 @@ export const SORT_BY_OPTIONS = [
   { value: 'priceDesc', label: 'Price: High-Low' },
   { value: 'priceAsc', label: 'Price: Low-High' },
 ];
-export const FILTER_GENDER_OPTIONS = ['Men', 'Women', 'Kids'];
-export const FILTER_CATEGORY_OPTIONS = ['All', 'Shose', 'Apparel', 'Accessories'];
+export const FILTER_GENDER_OPTIONS = ['Men', 'Women', 'Other'];
+export const FILTER_CATEGORY_OPTIONS = ['Pregnant', 'Lactose-Intolerant', 'Diabetic', 'Vegetarian', 'Vegan'];
 export const FILTER_RATING_OPTIONS = ['up4Star', 'up3Star', 'up2Star', 'up1Star'];
 export const FILTER_PRICE_OPTIONS = [
   { value: 'below', label: 'Below $25' },
@@ -85,10 +85,10 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
           <Stack spacing={3} sx={{ p: 3 }}>
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Gender
+                Condition
               </Typography>
               <FormGroup>
-                {FILTER_GENDER_OPTIONS.map((item) => (
+                {FILTER_CATEGORY_OPTIONS.map((item) => (
                   <FormControlLabel key={item} control={<Checkbox />} label={item} />
                 ))}
               </FormGroup>
@@ -96,16 +96,16 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
 
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Category
+                Gender
               </Typography>
               <RadioGroup>
-                {FILTER_CATEGORY_OPTIONS.map((item) => (
+                {FILTER_GENDER_OPTIONS.map((item) => (
                   <FormControlLabel key={item} value={item} control={<Radio />} label={item} />
                 ))}
               </RadioGroup>
             </div>
 
-            <div>
+            {/* <div>
               <Typography variant="subtitle1" gutterBottom>
                 Colors
               </Typography>
@@ -116,9 +116,9 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
                 onChangeColor={(color) => [].includes(color)}
                 sx={{ maxWidth: 38 * 4 }}
               />
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <Typography variant="subtitle1" gutterBottom>
                 Price
               </Typography>
@@ -127,11 +127,11 @@ export default function ShopFilterSidebar({ openFilter, onOpenFilter, onCloseFil
                   <FormControlLabel key={item.value} value={item.value} control={<Radio />} label={item.label} />
                 ))}
               </RadioGroup>
-            </div>
+            </div> */}
 
             <div>
               <Typography variant="subtitle1" gutterBottom>
-                Rating
+                Fetch Rating
               </Typography>
               <RadioGroup>
                 {FILTER_RATING_OPTIONS.map((item, index) => (

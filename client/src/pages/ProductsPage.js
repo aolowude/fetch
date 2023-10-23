@@ -5,9 +5,23 @@ import { useQuery, useMutation, gql } from '@apollo/client';
 // @mui
 import { Container, Stack, Typography } from '@mui/material';
 // components
-import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
+import {
+  ProductSort,
+  ProductList,
+  ProductCartWidget,
+  ProductFilterSidebar,
+  ProductPageSearch,
+  ProductPageSort,
+} from '../sections/@dashboard/products';
 // mock
 import PRODUCTS from '../_mock/products';
+import POSTS from '../_mock/blog';
+
+const SORT_OPTIONS = [
+  { value: 'latest', label: 'Latest' },
+  { value: 'popular', label: 'Popular' },
+  { value: 'favourites', label: 'Favourites' },
+];
 
 // ----------------------------------------------------------------------
 
@@ -54,7 +68,7 @@ export default function ProductsPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Products | Minimal UI </title>
+        <title> Dashboard: Products | Fetch </title>
       </Helmet>
 
       <Container>
@@ -62,14 +76,16 @@ export default function ProductsPage() {
           Products
         </Typography>
 
-        <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
-          <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
+        <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+          <ProductPageSearch posts={PRODUCTS} />
+          <Stack direction="row" spacing={5} flexShrink={0} sx={{ my: 1 }}>
+            <ProductSort />
+
             <ProductFilterSidebar
               openFilter={openFilter}
               onOpenFilter={handleOpenFilter}
               onCloseFilter={handleCloseFilter}
             />
-            <ProductSort />
           </Stack>
         </Stack>
 

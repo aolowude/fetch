@@ -26,7 +26,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Minimal UI </title>
+        <title> Dashboard | Fetch </title>
       </Helmet>
 
       <Container maxWidth="xl">
@@ -36,21 +36,38 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Prodcts Viewed" total={17} icon={'ant-design:android-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="Products Saved" total={9} color="info" icon={'ant-design:apple-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary
+              title="Recommendations Viewed"
+              total={29}
+              color="warning"
+              icon={'ant-design:windows-filled'}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Recommendations Saved" total={3} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
-
+          <Grid item xs={12} md={6} lg={12}>
+            <AppNewsUpdate
+              title="News Update"
+              list={[...Array(5)].map((_, index) => ({
+                id: faker.datatype.uuid(),
+                title: faker.name.jobTitle(),
+                description: faker.name.jobTitle(),
+                image: `/assets/images/covers/cover_${index + 1}.jpg`,
+                postedAt: faker.date.recent(),
+              }))}
+            />
+          </Grid>
+          {/* 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Website Visits"
@@ -140,19 +157,7 @@ export default function DashboardAppPage() {
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
           </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
-                image: `/assets/images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(),
-              }))}
-            />
-          </Grid>
+         
 
           <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline
@@ -212,6 +217,7 @@ export default function DashboardAppPage() {
               ]}
             />
           </Grid>
+        */}
         </Grid>
       </Container>
     </>

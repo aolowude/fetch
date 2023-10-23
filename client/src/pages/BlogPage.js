@@ -12,7 +12,7 @@ import POSTS from '../_mock/blog';
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
-  { value: 'oldest', label: 'Oldest' },
+  { value: 'favourites', label: 'Favourites' },
 ];
 
 // ----------------------------------------------------------------------
@@ -21,16 +21,16 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Blog | Minimal UI </title>
+        <title> Recommendatinos | Fetch </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Blog
+            Browse Recommendations
           </Typography>
           <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Post
+            New Recommendation
           </Button>
         </Stack>
 

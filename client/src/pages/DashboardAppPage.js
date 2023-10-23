@@ -57,11 +57,11 @@ export default function DashboardAppPage() {
           </Grid>
           <Grid item xs={12} md={6} lg={12}>
             <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
+              title="Fetch Latest"
+              list={[...Array(3)].map((_, index) => ({
                 id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
+                title: 'Recipes for building lean muscle',
+                description: `> ${faker.name.jobDescriptor()}`,
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
                 postedAt: faker.date.recent(),
               }))}

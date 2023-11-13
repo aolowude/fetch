@@ -68,7 +68,7 @@ export default function ProductsPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Products | Fetch </title>
+        <title> Fetch | Products </title>
       </Helmet>
 
       <Container>

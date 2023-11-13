@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --transpile-only src/index.ts",
+    "start": "node-dev src/index.ts",
     "dev": "npm start & sleep 2 && cd client && npm start",
     "install-client": "npm i --include=dev && cd client && npm i",
     "install-admin": "npm i --include=dev && cd admin && npm i",

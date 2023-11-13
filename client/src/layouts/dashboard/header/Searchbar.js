@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import OpenAI from 'openai';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import { Input, Slide, Button, IconButton, InputAdornment, ClickAwayListener } from '@mui/material';
@@ -8,6 +10,12 @@ import { bgBlur } from '../../../utils/cssStyles';
 import Iconify from '../../../components/iconify';
 
 // ----------------------------------------------------------------------
+console.log(process.env);
+const openai = new OpenAI({
+  apiKey: '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',
+  dangerouslyAllowBrowser: true,
+});
+console.log({ openai });
 
 const HEADER_MOBILE = 64;
 const HEADER_DESKTOP = 92;
@@ -28,9 +36,25 @@ const StyledSearchbar = styled('div')(({ theme }) => ({
     height: HEADER_DESKTOP,
     padding: theme.spacing(0, 5),
   },
+  borderBottom: '2px solid',
+  borderBottomColor: 'blue',
 }));
 
 // ----------------------------------------------------------------------
+
+async function fetchGpt() {
+  const completion = await openai.chat.completions.create({
+    messages: [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: '5 foods that are good for weight loss' },
+    ],
+    model: 'gpt-3.5-turbo',
+  });
+  console.log(completion.choices[0]);
+
+  const image = await openai.images.generate({ prompt: 'Tomato' });
+  console.log(image.data);
+}
 
 export default function Searchbar() {
   const [open, setOpen] = useState(false);
@@ -39,8 +63,9 @@ export default function Searchbar() {
     setOpen(!open);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose = async () => {
+    fetchGpt();
+    // setOpen(false);
   };
 
   return (
@@ -58,7 +83,7 @@ export default function Searchbar() {
               autoFocus
               fullWidth
               disableUnderline
-              placeholder="Search…"
+              placeholder="Fetch..."
               startAdornment={
                 <InputAdornment position="start">
                   <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 20, height: 20 }} />

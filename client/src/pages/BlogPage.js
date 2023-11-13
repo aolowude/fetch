@@ -21,7 +21,7 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title> Recommendatinos | Fetch </title>
+        <title>Fetch | Recommendations</title>
       </Helmet>
 
       <Container>
